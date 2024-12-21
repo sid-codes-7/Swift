@@ -4,13 +4,31 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello World")
+                .padding()
+                .foregroundStyle(.white)
+                .font(.largeTitle)
+                .bold()
+                .background(
+                    LinearGradient( gradient: Gradient(colors: [.blue, .purple, .white]), startPoint: .top, endPoint: .bottom)
+                        .frame(minWidth: 1000, minHeight: 1000)
+                )
+                
+                
+                
+           
+            
         }
-        .padding()
+        
+    
     }
+    
+        
+    
 }
 
 
