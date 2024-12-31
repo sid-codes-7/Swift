@@ -1,0 +1,43 @@
+//
+//  ContentView.swift
+//  Aproject
+//
+//  Created by Sid Aher on 12/30/24.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        VStack  {
+            Text("Pets are cool!")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .position(x: 185, y: 40)
+            Text("Are pets cool?")
+                .position(x: 185, y: -120)
+
+            Button("Yes") {
+                print("YAY!!!")
+            }
+                .font(.title)
+                .background(.blue)
+                .foregroundColor(Color.black)
+                .position(x: 185, y: -240)
+           
+            Button("No") {
+                print("BOOOO!")
+            }
+                .font(.title)
+                .background(.blue)
+                .foregroundColor(Color.black)
+                .position(x: 185, y: -240)
+        }
+        .padding()
+        .background(Color.orange)
+    }
+}
+
+#Preview {
+    ContentView()
+}
