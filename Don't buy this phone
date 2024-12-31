@@ -1,0 +1,69 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var showBuy = false
+    @State private var DontshowBuy = false
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Don't buy this phone")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                
+                Image(.goofy)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .padding(.bottom, 20)
+                
+                NavigationLink(destination: Buy()) {
+                    Text("Buy")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding(.bottom, 20)
+                
+                NavigationLink(destination: DontBuy()) {
+                    Text("Don't Buy")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+            }
+            .navigationDestination(isPresented: $showBuy) {
+                Buy()
+            }
+            .navigationDestination(isPresented: $DontshowBuy) {
+                Buy()
+            }
+        }
+    }
+}
+
+struct Buy: View {
+    var body: some View {
+        Text("Why did you buy the phone,it clearly says dont buy!")
+            .font(.largeTitle)
+            .bold()
+            .padding()
+    }
+}
+struct DontBuy: View {
+    var body: some View {
+        Text("Great Job! You have followed the app's instructions!")
+            .font(.largeTitle)
+            .bold()
+            .padding()
+    }
+}
+
+#Preview {
+    ContentView()
+}
