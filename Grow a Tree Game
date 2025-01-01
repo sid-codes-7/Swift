@@ -1,0 +1,92 @@
+import SwiftUI
+
+struct ContentView: View {
+    
+    @State private var quanitiy = 0
+    
+    var body: some View {
+        VStack{
+            Text("Grow your own plant!")
+                .font(.largeTitle)
+                .position(x:200, y:20)
+            
+            Image(.plant)
+                .scaleEffect(0.1)
+                .position(x:200, y:110)
+        
+            //        Button(action: {
+            //
+            //        }) {
+            //            Text("Log In")
+            //                .padding()
+            //                .background(Color.blue)
+            //                .foregroundColor(.white)
+            //                .cornerRadius(10)
+            //                .position(x:200, y:50)
+            //        }
+            Stepper("Height: \(quanitiy)", value: $quanitiy, in: 0...100)
+                .padding()
+                .position(x:200, y:200)
+            Spacer()
+            
+                .padding()
+            
+            Button(action: {
+                if quanitiy > 5 {
+                    quanitiy += 2
+                    
+                }
+            }) {
+                Text("upgrade 1: increase height by 2")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    //.position(x:200, y:170)
+            }
+            
+            Button(action: {
+                if quanitiy > 30 {
+                    quanitiy += 10
+                    
+                }
+            }) {
+                Text("upgrade 2: increase height by 10")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    //.position(x:200, y:90)
+            }
+            
+            if quanitiy == 10 {
+                Text("You have grown your plant!")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.red)
+            }
+            if quanitiy < 10 {
+                Text("Water your plant for it to grow! + = water | - = poison")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.green)
+            }
+            if quanitiy > 50 {
+                Text("Your plant is starting to become a tree!")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.red)
+            }
+            if quanitiy == 100 {
+                Text("Your plant is now a tree!")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.purple)
+            }
+        }
+        
+    }
+}
+#Preview {
+    ContentView()
+}
